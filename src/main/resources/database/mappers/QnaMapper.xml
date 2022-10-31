@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
+<mapper namespace="com.iu.home.board.qna.QnaMapper">
+
+	<insert id="setQnaAdd" parameterType="QnaVO">
+		INSERT INTO QNA VALUES (NULL, #{writer}, #{title}, #{contents}, 0, sysdate(), 0, 0, 0)
+	</insert>
+
+	<select id="getList" parameterType="Pager" resultType="QnaVO">
+		SELECT * FROM QNA 
+			WHERE <choose>
+					<when test="kind == 'writer'">writer</when>
+					<when test="kind == 'title'">title</when>
+					<otherwise>contents</otherwise>
+				</choose>
+			LIKE CONCAT('%', #{search}, '%')
+			ORDER BY num DESC LIMIT #{startRow}, #{perPage}
+	</select>
+	
+	<select id="getCount" parameterType="Pager" resultType="Long">
+		SELECT COUNT(NUM) FROM QNA
+			WHERE <choose>
+					<when test="kind == 'writer'">writer</when>
+					<when test="kind == 'title'">title</when>
+					<otherwise>contents</otherwise>
+				</choose>
+			LIKE CONCAT('%', #{search}, '%')
+	</select>
+	
+</mapper>
