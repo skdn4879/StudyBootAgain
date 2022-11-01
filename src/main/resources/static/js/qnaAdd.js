@@ -3,6 +3,8 @@ let fileLimit = 5;
 
 let validCheckes = [false, false];
 
+initCheck();
+
 $("#contents").summernote();
 
 //작성 확인
@@ -57,3 +59,17 @@ $("#title").blur(function(){
         $("#titleErrorMessage").html("");
     }
 });
+
+function initCheck(){
+    if($("#writer").val() == ""){
+        validCheckes[0] = false;
+    } else {
+        validCheckes[0] = true;
+    }
+
+    if($("#title").val() == ""){
+        validCheckes[1] = false;
+    } else {
+        validCheckes[1] = true;
+    }
+}
