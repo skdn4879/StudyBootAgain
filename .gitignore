@@ -204,5 +204,6 @@ $RECYCLE.BIN/
 
 # myIgnoreFile
 application-prod.properties
+application.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java,web
