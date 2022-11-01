@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.errorMsgFrame {
+	color: red;
+	font-size: 1.3rem;
+	font-weight: bold;
+}

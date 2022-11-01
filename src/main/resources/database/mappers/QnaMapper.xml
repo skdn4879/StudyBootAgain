@@ -5,8 +5,12 @@
 		    
 <mapper namespace="com.iu.home.board.qna.QnaMapper">
 
-	<insert id="setQnaAdd" parameterType="QnaVO">
+	<insert id="setQnaAdd" parameterType="QnaVO" useGeneratedKeys="true" keyProperty="num">
 		INSERT INTO QNA VALUES (NULL, #{writer}, #{title}, #{contents}, 0, sysdate(), 0, 0, 0)
+	</insert>
+	
+	<insert id="setQnaFileAdd" parameterType="QnaFileVO">
+		INSERT INTO QNAFILES VALUES (NULL, #{num}, #{fileName}, #{oriName})
 	</insert>
 
 	<select id="getList" parameterType="Pager" resultType="QnaVO">

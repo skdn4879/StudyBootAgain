@@ -72,6 +72,8 @@
 		    </c:if>
 		  </ul>
 		</nav>
+		
+		<a href="./add" class="btn btn-primary" role="button">글쓰기</a>
 	</section>
 	
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
