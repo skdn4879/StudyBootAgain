@@ -9,6 +9,10 @@ import com.iu.home.util.Pager;
 @Mapper
 public interface QnaMapper {
 	
+	public QnaFileVO getFileDetail(QnaFileVO qnaFileVO) throws Exception;
+	
+	public QnaVO getDetail(QnaVO qnaVO) throws Exception;
+	
 	public int setQnaAdd(QnaVO qnaVO) throws Exception;
 	
 	public int setQnaFileAdd(QnaFileVO qnaFileVO) throws Exception;

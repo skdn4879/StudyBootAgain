@@ -24,6 +24,14 @@ public class QnaService {
 	@Value("${app.upload.qna}")
 	private String filePath;
 	
+	public QnaFileVO getFileDetail(QnaFileVO qnaFileVO) throws Exception {
+		return qnaMapper.getFileDetail(qnaFileVO);
+	}
+	
+	public QnaVO getDetail(QnaVO qnaVO) throws Exception {
+		return qnaMapper.getDetail(qnaVO);
+	}
+	
 	@Transactional(rollbackFor = Exception.class)
 	public int setQnaAdd(QnaVO qnaVO, MultipartFile[] files) throws Exception {
 		int qnaResult = qnaMapper.setQnaAdd(qnaVO);

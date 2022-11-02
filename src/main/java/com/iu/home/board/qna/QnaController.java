@@ -26,6 +26,19 @@ public class QnaController {
 	@Autowired
 	private QnaService qnaService;
 	
+	@GetMapping("detail")
+	public ModelAndView getDetail(QnaVO qnaVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		qnaVO = qnaService.getDetail(qnaVO);
+		
+		mv.addObject("qnaVO", qnaVO);
+		mv.addObject("fileCategory", "qna");
+		mv.setViewName("board/detail");
+		
+		return mv;
+	}
+	
 	@PostMapping("add")
 	public ModelAndView setAdd(@Valid QnaVO qnaVO, BindingResult bindingResult, ModelAndView mv, MultipartFile[] files) throws Exception {
 		
